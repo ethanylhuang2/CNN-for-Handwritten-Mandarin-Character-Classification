@@ -7,10 +7,13 @@ from keras.models import load_model
 import io
 import numpy as np
 import pickle
+import os
 
 app = Flask(__name__)
 
-model = load_model('trained_models/mandarin_classification_v2.keras')
+base_dir = os.path.dirname(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, 'data_prep', 'trained_models', 'mandarin_classification_v2.keras')
+model = load_model('data_prep/trained_models/mandarin_classification_v2.keras')
 
 @app.route("/predict", methods=["POST"])
 
