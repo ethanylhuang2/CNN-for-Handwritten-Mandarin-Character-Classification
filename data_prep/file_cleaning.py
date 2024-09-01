@@ -11,9 +11,6 @@ train_dir = pathlib.Path(r'C:\Users\ethan\Downloads\mandarin_images\new_test\fin
 test_dir = pathlib.Path(r'C:\Users\ethan\Downloads\mandarin_images\new_test\final_images\CASIA-HWDB_Test\Test')
 
 def get_image_files(directory):
-    """
-    Recursively find all image files within a directory and its subdirectories.
-    """
     image_files = []
     for root, dirs, files in os.walk(directory):
         for file in files:
@@ -24,9 +21,6 @@ def get_image_files(directory):
 train_image_files = get_image_files(train_dir)
 
 def check_for_empty_images(image_files):
-    """
-    Check a list of image files for images that could cause the 'Input is empty' error during decoding.
-    """
     problematic_images = []
     for image_file in image_files:
         try:
